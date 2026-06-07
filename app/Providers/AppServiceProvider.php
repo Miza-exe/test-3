@@ -21,5 +21,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Paginator::useTailwind();
+if (config('app.env') !== 'local') {
+        URL::forceScheme('https');
     }
 }
